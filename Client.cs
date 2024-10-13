@@ -23,11 +23,11 @@ public class Client
         
         if (response.IsSuccessStatusCode)
         {
-            Console.WriteLine("Benutzer erfolgreich registriert.");
+            Console.WriteLine("User registered successfully.");
         }
         else
         {
-            Console.WriteLine($"Registrierung fehlgeschlagen: {response.StatusCode}");
+            Console.WriteLine($"Registration failed: {response.StatusCode}");
         }
     }
 
@@ -40,11 +40,11 @@ public class Client
         if (response.IsSuccessStatusCode)
         {
             var responseBody = await response.Content.ReadAsStringAsync();
-            Console.WriteLine($"Login erfolgreich. Antwort: {responseBody}");
+            Console.WriteLine($"Login successfully. Response: {responseBody}");
         }
         else
         {
-            Console.WriteLine($"Login fehlgeschlagen: {response.StatusCode}");
+            Console.WriteLine($"Login failed: {response.StatusCode}");
         }
     }
 }
