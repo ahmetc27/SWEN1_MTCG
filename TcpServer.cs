@@ -24,7 +24,7 @@ public class TcpServer
     public void Start()
     {
         server.Start();
-        Console.WriteLine($"Server läuft auf Port {((IPEndPoint)server.LocalEndpoint).Port}...");
+        Console.WriteLine($"Server is running on port {((IPEndPoint)server.LocalEndpoint).Port}...");
 
         while (true)
         {
