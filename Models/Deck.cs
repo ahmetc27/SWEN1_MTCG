@@ -27,6 +27,24 @@ namespace MTCG
             }
         }
 
+        public void RemoveCard(Card card)
+        {
+            if (SelectedCards.Contains(card))
+            {
+                SelectedCards.Remove(card);
+            }
+            else
+            {
+                Console.WriteLine("Card not found in the deck!");
+            }
+        }
+
+        public void ShuffleDeck()
+        {
+            Random rng = new Random();
+            SelectedCards = SelectedCards.OrderBy(a => rng.Next()).ToList();
+        }
+
         public void DisplayDeck()
         {
             foreach (Card card in SelectedCards)
