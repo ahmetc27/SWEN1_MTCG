@@ -6,27 +6,25 @@ namespace MTCG.Controllers
     [Route("api/[controller]")]
     public class UserController : ControllerBase
     {
-        [HttpPost("register")]
-        public IActionResult Register([FromBody] User user)
-        {
-            return Ok("User registered");
-        }
-
         private static List<User> Users = new List<User>();
 
-        if (string.IsNullOrEmpty(user.Username) || string.IsNullOrEmpty(user.Password))
-        {
-            return BadRequest("Username and password cannot be empty.");
-        }
+        [HttpPost("register")]
+        public IActionResult Register([FromBody] User user)
+        {        
+            if (string.IsNullOrEmpty(user.Username) || string.IsNullOrEmpty(user.Password))
+            {
+                return BadRequest("Username and password cannot be empty.");
+            }
 
-        var existingUser = Users.FirstOrDefault(u => u.Username == user.Username);
-        if (existingUser != null)
-        {
-            return Conflict("User already exists.");
-        }
+            var existingUser = Users.FirstOrDefault(u => u.Username == user.Username);
+            if (existingUser != null)
+            {
+                return Conflict("User already exists.");
+            }
 
-        Users.Add(user);
-        return Ok(new { Message = "User registered successfully", Username = user.Username });
+            Users.Add(user);
+            return Ok(new { Message = "User registered successfully", Username = user.Username });
+        }
 
 
         [HttpPost("login")]
