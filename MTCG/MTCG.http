@@ -1,0 +1,6 @@
+@MTCG_HostAddress = http://localhost:5193
+
+GET {{MTCG_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
