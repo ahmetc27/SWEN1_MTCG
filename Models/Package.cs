@@ -13,5 +13,15 @@ namespace MTCG
         {
             PackageCards = new List<Card>();
         }
+
+        public void GeneratePackage(List<Card> availableCards)
+        {
+            Random rng = new Random();
+            for (int i = 0; i < 5; i++)
+            {
+                var card = availableCards[rng.Next(availableCards.Count)];
+                PackageCards.Add(card);
+            }
+        }
     }
 }
